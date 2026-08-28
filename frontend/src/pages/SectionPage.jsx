@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import ColorContrastChecker from '../components/colorcontrastchecker';
+import ColorContrastChecker from '../components/ColorContrastChecker';
 
 // Temporary mapping for section info
 const sectionMap = {
