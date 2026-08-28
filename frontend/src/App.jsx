@@ -1,21 +1,38 @@
-// frontend/src/App.jsx
-import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import SectionPage from './pages/SectionPage';
+import ComponentLibrary from './pages/ComponentLibrary';
+import QuizPage from './pages/QuizPage';
+import LeaderboardPage from './pages/LeaderboardPage';
+import SearchBar from './pages/Searchbar';
+import './App.css';
 
 function App() {
-  const [apiStatus, setApiStatus] = useState('Checking API...');
-
-  useEffect(() => {
-    fetch('http://127.0.0.1:8000/health')
-      .then((res) => res.json())
-      .then((data) => setApiStatus(data.status))
-      .catch(() => setApiStatus('API unreachable'));
-  }, []);
-
   return (
-    <div>
-      <h1>A11yLearn</h1>
-      <p>Backend status: {apiStatus}</p>
-    </div>
+    <BrowserRouter>
+      <header>
+        <nav aria-label="Main navigation">
+          <ul className="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/components">Component Library</a></li>
+            <li><a href="/quiz">Quiz</a></li>
+            <li><a href="/leaderboard">Leaderboard</a></li>
+          </ul>
+        </nav>
+        <SearchBar />
+      </header>
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/design-system" element={<SectionPage section="design-system" />} />
+        <Route path="/framework-library" element={<SectionPage section="framework-library" />} />
+        <Route path="/standards" element={<SectionPage section="standards" />} />
+        <Route path="/best-practices" element={<SectionPage section="best-practices" />} />
+        <Route path="/components" element={<ComponentLibrary />} />
+        <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/leaderboard" element={<LeaderboardPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
