@@ -24,7 +24,7 @@ const QuizPage = () => {
   }, []);
 
   const fetchQuizzes = () => {
-    fetch(`${API_BASE_URL}/api/quizzes/`)
+    fetch(`/api/quizzes/`)
       .then((res) => res.json())
       .then((data) => setQuizzes(data))
       .catch((err) => setError('Failed to load quizzes'));
@@ -39,7 +39,7 @@ const QuizPage = () => {
     setError(null);
     if (quizId) {
       setLoading(true);
-      fetch(`${API_BASE_URL}/api/quizzes/${quizId}/questions/`)
+      fetch(`/api/quizzes/${quizId}/questions/`)
         .then((res) => res.json())
         .then((data) => {
           setQuestions(data);
@@ -74,7 +74,7 @@ const QuizPage = () => {
     // Create user
     let userId;
     try {
-      const userRes = await fetch(`${API_BASE_URL}/api/users/`, {
+      const userRes = await fetch(`/api/users/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name }),
@@ -97,7 +97,7 @@ const QuizPage = () => {
     };
 
     try {
-      const submitRes = await fetch(`${API_BASE_URL}/api/quizzes/${selectedQuiz}/submit/`, {
+      const submitRes = await fetch(`/api/quizzes/${selectedQuiz}/submit/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(submission),
@@ -120,7 +120,7 @@ const QuizPage = () => {
     setGenerating(true);
     setError(null);
     try {
-      const res = await fetch(`${API_BASE_URL}/api/ai/generate-quiz`, {
+      const res = await fetch(`/api/ai/generate-quiz`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic: aiTopic, num_questions: aiNumQuestions }),

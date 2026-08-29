@@ -6,7 +6,7 @@ const LeaderboardPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/api/leaderboard/`)
+    fetch(`/api/leaderboard/`)
       .then((res) => res.json())
       .then((data) => {
         setScores(data);
