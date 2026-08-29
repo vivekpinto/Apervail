@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
 import ColorContrastChecker from '../components/ColorContrastChecker';
 
 // Temporary mapping for section info
@@ -36,7 +37,7 @@ const SectionPage = ({ section }) => {
 
   useEffect(() => {
     if (!info.category) return;
-    fetch(`/api/resources/?category=${info.category}`)
+    fetch(`${API_BASE_URL}/api/resources/?category=${info.category}`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch resources');
         return res.json();
