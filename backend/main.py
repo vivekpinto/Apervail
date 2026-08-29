@@ -8,7 +8,7 @@ app = FastAPI()
 # Allow requests from your React dev server (usually http://localhost:5173)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://apervail-j17npjicn-apervail.vercel.app/"],
+    allow_origins=["http://localhost:5173", "https://apervail-j17npjicn-apervail.vercel.app/", "https://apervail.vercel.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
