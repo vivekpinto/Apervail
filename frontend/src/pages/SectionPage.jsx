@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { API_BASE_URL } from '../config';
 import ColorContrastChecker from '../components/ColorContrastChecker';
 
 // Temporary mapping for section info
