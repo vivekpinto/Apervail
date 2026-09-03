@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { API_BASE_URL } from '../config';
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
@@ -18,7 +19,7 @@ const SearchBar = () => {
 
     const delay = setTimeout(() => {
       setLoading(true);
-      fetch(`/api/search?q=${encodeURIComponent(query.trim())}`)
+      fetch(`${API_BASE_URL}/search?q=${encodeURIComponent(query.trim())}`)
         .then((res) => res.json())
         .then((data) => {
           setResults(data);

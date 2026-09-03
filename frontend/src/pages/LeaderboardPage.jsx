@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
 
 const LeaderboardPage = () => {
   const [scores, setScores] = useState([]);
@@ -6,7 +7,7 @@ const LeaderboardPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`/api/leaderboard/`)
+    fetch(`${API_BASE_URL}/leaderboard/`)
       .then((res) => res.json())
       .then((data) => {
         setScores(data);
