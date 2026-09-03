@@ -39,7 +39,7 @@ const HomePage = () => {
             <ul>
               <li>1. Alex – 95%</li>
               <li>2. Sam – 90%</li>
-              <li>3. Jordan – 85%</li>
+              <li>3. Vivek – 85%</li>
             </ul>
             <Link to="/leaderboard">View full leaderboard</Link>
           </div>
